@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// Represents to mode used to generate the distance series.
+// Represents the mode used to generate the distance series.
 // Currently supports the following:
 // - ModeDistance: generates a distance series from a target distance value.
 // - ModeSpeed: generates a distance series based on an average speed value.
