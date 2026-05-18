@@ -9,7 +9,7 @@ import (
 )
 
 func TestProcess_DistanceMode(t *testing.T) {
-	input := "../testdata/sample.fit"
+	input := "../../testdata/sample.fit"
 
 	output := filepath.Join(
 		t.TempDir(),
@@ -51,7 +51,7 @@ func TestProcess_DistanceMode(t *testing.T) {
 }
 
 func TestProcess_SpeedMode(t *testing.T) {
-	input := "../testdata/sample.fit"
+	input := "../../testdata/sample.fit"
 
 	output := filepath.Join(
 		t.TempDir(),
