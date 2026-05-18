@@ -25,9 +25,23 @@ existing FIT activity files.
 
 ## Installation
 
-### Go
+### Releases
+Download the binary 
+
+### Using `go install`
+If you have Go installed on your system, you can install `fitmod` with:
 ```bash
 go install github.com/huberbastian/fitmod@latest
+```
+### Download prebuilt binaries
+
+Prebuilt binaries for are available through [GitHub Releases](https://github.com/huberbastian/fitmod/releases).
+
+### Or build from source
+```bash
+git clone https://github.com/huberbastian/fitmod.git
+cd fitmod
+go build -o fitmod .
 ```
 
 ## Usage
