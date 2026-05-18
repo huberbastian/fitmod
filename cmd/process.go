@@ -5,8 +5,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/huberbastian/fitmod/core"
-
+	"github.com/huberbastian/fitmod/internal/processor"
 	"github.com/spf13/cobra"
 )
 
@@ -36,7 +35,7 @@ var (
 			}
 
 			req := buildRequest(cmd, args)
-			if err := core.Process(req); err != nil {
+			if err := processor.Process(req); err != nil {
 				return fmt.Errorf("error processing FIT file: %w", err)
 			}
 
@@ -74,7 +73,7 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 	return nil
 }
 
-func buildRequest(cmd *cobra.Command, args []string) core.Request {
+func buildRequest(cmd *cobra.Command, args []string) processor.Request {
 	input := args[0]
 
 	output, _ := cmd.Flags().GetString("output")
@@ -85,12 +84,12 @@ func buildRequest(cmd *cobra.Command, args []string) core.Request {
 	distance, _ := cmd.Flags().GetFloat64("distance")
 	speed, _ := cmd.Flags().GetFloat64("speed")
 
-	mode := core.ModeDistance
+	mode := processor.ModeDistance
 	if speed > 0 {
-		mode = core.ModeSpeed
+		mode = processor.ModeSpeed
 	}
 
-	return core.Request{
+	return processor.Request{
 		InputPath:   input,
 		OutputPath:  output,
 		Mode:        mode,

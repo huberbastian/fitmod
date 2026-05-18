@@ -3,8 +3,7 @@ package cmd
 import (
 	"testing"
 
-	"github.com/huberbastian/fitmod/core"
-
+	"github.com/huberbastian/fitmod/internal/processor"
 	"github.com/spf13/cobra"
 )
 
@@ -33,17 +32,17 @@ func TestBuildRequest(t *testing.T) {
 		outputPath string
 		distance   float64
 		speed      float64
-		want       core.Request
+		want       processor.Request
 	}{
 		{
 			name:      "distance mode with default output",
 			inputPath: "activity.fit",
 			distance:  31,
 
-			want: core.Request{
+			want: processor.Request{
 				InputPath:   "activity.fit",
 				OutputPath:  "activity_modified.fit",
-				Mode:        core.ModeDistance,
+				Mode:        processor.ModeDistance,
 				DistanceKm:  31,
 				AvgSpeedKmh: 0,
 			},
@@ -53,10 +52,10 @@ func TestBuildRequest(t *testing.T) {
 			inputPath: "activity.fit",
 			speed:     25,
 
-			want: core.Request{
+			want: processor.Request{
 				InputPath:   "activity.fit",
 				OutputPath:  "activity_modified.fit",
-				Mode:        core.ModeSpeed,
+				Mode:        processor.ModeSpeed,
 				DistanceKm:  0,
 				AvgSpeedKmh: 25,
 			},
@@ -67,10 +66,10 @@ func TestBuildRequest(t *testing.T) {
 			outputPath: "custom.fit",
 			distance:   20,
 
-			want: core.Request{
+			want: processor.Request{
 				InputPath:   "activity.fit",
 				OutputPath:  "custom.fit",
-				Mode:        core.ModeDistance,
+				Mode:        processor.ModeDistance,
 				DistanceKm:  20,
 				AvgSpeedKmh: 0,
 			},
